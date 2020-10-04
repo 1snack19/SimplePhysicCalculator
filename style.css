@@ -1,5 +1,11 @@
 body {
-  font-family: "Lato", sans-serif;
+  font-family: helvetica, sans-serif;
+  background-color: #ffa6a6;
+}
+
+.dem1 {
+  border: 10px;
+  border-radius: 20%;
 }
 
 #page {
