@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Physic Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script charset="utf-8" type="text/javascript">
+    function velocal(){
+      var inp1 = document.getElementById('input1').value;
+      var inp2 = document.getElementById('input2').value;
+      var convinp1 = parseFloat(inp1);
+      var convinp2 = parseFloat(inp2);
+      document.getElementById('resultVelo').innerHTML = convinp1 / convinp2 + " m/s";
+    }
+
+    function discal(){
+      var inp1 = document.getElementById('input1-1').value;
+      var inp2 = document.getElementById('input2-1').value;
+      inp1 = parseFloat(inp1);
+      inp2 = parseFloat(inp2);
+
+      document.getElementById('resultDis').innerHTML = inp1 * inp2 + " metre"
+    }
+
+    function timecal(){
+      var inp1 = document.getElementById('input1-2').value;
+      var inp2 = document.getElementById('input2-2').value;
+      inp1 = parseFloat(inp1);
+      inp2 = parseFloat(inp2);
+
+      document.getElementById('resultTime').innerHTML = inp1 * inp2 + " seconds"
+    }
+
+    function Voltcal(){
+      var inp1 = document.getElementById('input1-3').value;
+      var inp2 = document.getElementById('input2-3').value;
+      inp1 = parseFloat(inp1);
+      inp2 = parseFloat(inp2);
+
+      document.getElementById('resultVolt').innerHTML = inp1 * inp2 + " Volts"
+    }
+
+    function Resistcal(){
+      var inp1 = document.getElementById('input1-5').value;
+      var inp2 = document.getElementById('input2-5').value;
+      inp1 = parseFloat(inp1);
+      inp2 = parseFloat(inp2);
+
+      document.getElementById('resultResist').innerHTML = inp1 / inp2 + " Ohms"
+    }
+
+    function Ampcal(){
+      var inp1 = document.getElementById('input1-4').value;
+      var inp2 = document.getElementById('input2-4').value;
+      inp1 = parseFloat(inp1);
+      inp2 = parseFloat(inp2);
+
+      document.getElementById('resultAmp').innerHTML = inp1 / inp2 + " Amps"
+    }
+
+    function PEcal(){
+      var inp1 = document.getElementById('input1-6').value;
+      var inp2 = document.getElementById('input2-6').value;
+      inp1 = parseFloat(inp1);
+      inp2 = parseFloat(inp2);
+
+      document.getElementById('resultE').innerHTML = inp1 * 10 * inp2 + " Joule"
+    }
+
+    function KEcal() {
+      var inp1 = document.getElementById('input1-7').value;
+      var inp2 = document.getElementById('input2-7').value;
+      inp1 = parseFloat(inp1);
+      inp2 = parseFloat(inp2);
+
+      document.getElementById('resultP').innerHTML = 1/2 * inp1 *  (inp2 * inp2) + " Joule"
+    }
+    </script>
+  </head>
+  <body>
+    <hr>
+    <h1 id="page">Physic Calculator</h1>
+    <hr>
+    <!--Velocity -->
+    <h1>Velocity Calculator</h1>
+    <div class="dem1">
+      <img src="imgVel.png" alt="">
+    </div>
+    <h2>Find Velocity</h2>
+    <p>Enter Distance(metre)</p>
+    <input type="text" id="input1" />
+    <br>
+    <p>Enter time(second)</p>
+    <input type="text" id="input2">
+    <br>
+    <input type="button" name="button" value="Calculate!" onclick="javascript:velocal()" />
+    <br>
+    <p>Result :</p>
+    <div id="resultVelo" class="texts">
+      <p>0 m/s</p>
+    </div>
+    <hr>
+
+    <!-- Distance -->
+
+    <h2>Find Distance(metre)</h2>
+    <p>Enter Velocity(m/s)</p>
+    <input type="text" id="input1-1" />
+    <br>
+    <p>Enter time(second)</p>
+    <input type="text" id="input2-1" />
+    <br>
+    <input type="button" name="button" value="Calculate!" onclick="javascript:discal()">
+    <br>
+    <p>Result :</p>
+    <div id="resultDis" class="texts">
+      <p>0 metre</p>
+    </div>
+    <hr>
+    <!-- Time -->
+    <h2>Find Time(seconds)</h2>
+    <p>Enter Velocity(seconds)</p>
+    <input type="text" id="input1-2" />
+    <br>
+    <p>Enter time(second)</p>
+    <input type="text" id="input2-2" />
+    <br>
+    <input type="button" name="button" value="Calculate!" onclick="javascript:timecal()">
+    <br>
+    <p>Result :</p>
+    <div id="resultTime" class="texts">
+      <p>0 seconds</p>
+    </div>
+    <hr>
+
+    <!-- Ohm's law -->
+    <h1>Ohm's law Calculator</h1>
+    <div class="Ohm">
+      <img src="imgOhm.png" alt="">
+    </div>
+    <h2>Find Voltage</h2>
+    <p>Enter Electric Current(Amp)</p>
+    <input type="text" id="input1-3" />
+    <br>
+    <p>Enter Resistance(Ohm)</p>
+    <input type="text" id="input2-3" />
+    <br>
+    <input type="button" name="button" value="Calculate!" onclick="javascript:Voltcal()">
+    <br>
+    <p>Result :</p>
+    <div id="resultVolt" class="texts">
+      <p>0 Volts</p>
+    </div>
+    <hr>
+
+    <h2>Find Electric Current</h2>
+    <p>Enter Voltage(Volts)</p>
+    <input type="text" id="input1-4" />
+    <br>
+    <p>Enter Resistance(Ohm)</p>
+    <input type="text" id="input2-4" />
+    <br>
+    <input type="button" name="button" value="Calculate!" onclick="javascript:Ampcal()">
+    <br>
+    <p>Result :</p>
+    <div id="resultAmp" class="texts">
+      <p>0 Amps</p>
+    </div>
+    <hr>
+
+    <h2>Find Resistance</h2>
+    <p>Enter Voltage(Volts)</p>
+    <input type="text" id="input1-5" />
+    <br>
+    <p>Enter Electric Current(Amps)</p>
+    <input type="text" id="input2-5" />
+    <br>
+    <input type="button" name="button" value="Calculate!" onclick="javascript:Resistcal()">
+    <br>
+    <p>Result :</p>
+    <div id="resultResist" class="texts">
+      <p>0 Ohms</p>
+    </div>
+    <hr>
+
+    <h1>Potential Energy Calculator</h1>
+    <div class="pe">
+      <img src="imgPot.png" alt="">
+    </div>
+    <p>Enter Mass(kg)</p>
+    <input type="text" id="input1-6" />
+    <br>
+    <p>Enter Height(m)</p>
+    <input type="text" id="input2-6" />
+    <br>
+    <input type="button" name="button" value="Calculate!" onclick="javascript:PEcal()">
+    <br>
+    <p>Result :</p>
+    <div id="resultE" class="texts">
+      <p>0 Joules</p>
+    </div>
+    <hr>
+
+    <h1>Kenetic Energy Calculator</h1>
+    <div class="kine">
+      <img src="imgKine.png" alt="">
+    </div>
+    <p>Enter Mass(kg)</p>
+    <input type="text" id="input1-7" />
+    <br>
+    <p>Enter Speed(m/s)</p>
+    <input type="text" id="input2-7" />
+    <br>
+    <input type="button" name="button" value="Calculate!" onclick="javascript:KEcal()">
+    <br>
+    <p>Result :</p>
+    <div id="resultP" class="texts">
+      <p>0 Joules</p>
+    </div>
+    <hr>
+
+
+
+  </body>
+</html>
