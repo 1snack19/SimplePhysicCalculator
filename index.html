@@ -5,75 +5,68 @@
     <title>Physic Calculator</title>
     <link rel="stylesheet" href="style.css">
     <script charset="utf-8" type="text/javascript">
-    function velocal(){
-      var inp1 = document.getElementById('input1').value;
-      var inp2 = document.getElementById('input2').value;
-      var convinp1 = parseFloat(inp1);
-      var convinp2 = parseFloat(inp2);
-      document.getElementById('resultVelo').innerHTML = convinp1 / convinp2 + " m/s";
-    }
+    "use strict";
+    function OneforAll(inn1, inn2, adre , operat) {
+      var in1 = document.getElementById(inn1).value;
+      var in2 = document.getElementById(inn2).value;
+      //console.log(in1, in2);
+      in1 = parseFloat(in1);
+      in2 = parseFloat(in2);
 
-    function discal(){
-      var inp1 = document.getElementById('input1-1').value;
-      var inp2 = document.getElementById('input2-1').value;
-      inp1 = parseFloat(inp1);
-      inp2 = parseFloat(inp2);
+      //console.log(in1, in2);
 
-      document.getElementById('resultDis').innerHTML = inp1 * inp2 + " metre"
-    }
+      switch(operat){
+        case "velocal":
+        document.getElementById(adre).innerHTML = in1 / in2 + " m/s";
+        //console.log("iwemiksvm");
+        break;
 
-    function timecal(){
-      var inp1 = document.getElementById('input1-2').value;
-      var inp2 = document.getElementById('input2-2').value;
-      inp1 = parseFloat(inp1);
-      inp2 = parseFloat(inp2);
+        case "discal":
+        document.getElementById(adre).innerHTML = in1 * in2 + " metre";
+        //console.log("anoujsgfna8455841584");
+        break;
 
-      document.getElementById('resultTime').innerHTML = inp1 * inp2 + " seconds"
-    }
+        case "timecal":
+        document.getElementById(adre).innerHTML = in1 * in2 + " seconds";
+        break;
 
-    function Voltcal(){
-      var inp1 = document.getElementById('input1-3').value;
-      var inp2 = document.getElementById('input2-3').value;
-      inp1 = parseFloat(inp1);
-      inp2 = parseFloat(inp2);
+        case "voltcal":
+        document.getElementById(adre).innerHTML = in1 * in2 + " Volts";
+        break;
 
-      document.getElementById('resultVolt').innerHTML = inp1 * inp2 + " Volts"
-    }
+        case "resistcal":
+        document.getElementById(adre).innerHTML = in1 / in2 + " Ohms";
+        break;
 
-    function Resistcal(){
-      var inp1 = document.getElementById('input1-5').value;
-      var inp2 = document.getElementById('input2-5').value;
-      inp1 = parseFloat(inp1);
-      inp2 = parseFloat(inp2);
+        case "Ampcal":
+        document.getElementById(adre).innerHTML = in1 / in2 + " Amps";
+        break;
 
-      document.getElementById('resultResist').innerHTML = inp1 / inp2 + " Ohms"
-    }
+        case "PEcal":
+        document.getElementById(adre).innerHTML = in1 * 9.81 * in2 + " Joule";
+        break;
 
-    function Ampcal(){
-      var inp1 = document.getElementById('input1-4').value;
-      var inp2 = document.getElementById('input2-4').value;
-      inp1 = parseFloat(inp1);
-      inp2 = parseFloat(inp2);
+        case "PEcalA":
+        //console.log("heck");
+        document.getElementById(adre).innerHTML = in1 / 9.81 * in2 + " Kilograms";
+        break;
 
-      document.getElementById('resultAmp').innerHTML = inp1 / inp2 + " Amps"
-    }
+        case "PEcalB":
+        document.getElementById(adre).innerHTML = in1 / in2 * 9.81 + " Metres";
+        break;
 
-    function PEcal(){
-      var inp1 = document.getElementById('input1-6').value;
-      var inp2 = document.getElementById('input2-6').value;
-      inp1 = parseFloat(inp1);
-      inp2 = parseFloat(inp2);
+        case "KEcal":
+        document.getElementById(adre).innerHTML = 1/2 * in1 *  in2**2 + " Joule";
+        break;
 
-      document.getElementById('resultE').innerHTML = inp1 * 10 * inp2 + " Joule"
-    }
+        case "KEcalA":
+        document.getElementById(adre).innerHTML = in1 * 2 / in2 + " Kilograms";
+        break;
 
-    function KEcal() {
-      var inp1 = document.getElementById('input1-7').value;
-      var inp2 = document.getElementById('input2-7').value;
-      inp1 = parseFloat(inp1);
-      inp2 = parseFloat(inp2);
-
-      document.getElementById('resultP').innerHTML = 1/2 * inp1 *  (inp2 * inp2) + " Joule"
+        case "KEcalB":
+        document.getElementById(adre).innerHTML = (in1 * 2 / in2) ** 0.5 + " m/s";
+        break;
+      }
     }
     </script>
   </head>
@@ -93,7 +86,7 @@
     <p>Enter time(second)</p>
     <input type="text" id="input2">
     <br>
-    <input type="button" name="button" value="Calculate!" onclick="javascript:velocal()" />
+    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1", "input2", "resultVelo", "velocal")' />
     <br>
     <p>Result :</p>
     <div id="resultVelo" class="texts">
@@ -110,7 +103,7 @@
     <p>Enter time(second)</p>
     <input type="text" id="input2-1" />
     <br>
-    <input type="button" name="button" value="Calculate!" onclick="javascript:discal()">
+    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-1", "input2-1", "resultDis", "discal")'>
     <br>
     <p>Result :</p>
     <div id="resultDis" class="texts">
@@ -125,7 +118,7 @@
     <p>Enter time(second)</p>
     <input type="text" id="input2-2" />
     <br>
-    <input type="button" name="button" value="Calculate!" onclick="javascript:timecal()">
+    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-2", "input2-2", "resultTime", "timecal")'>
     <br>
     <p>Result :</p>
     <div id="resultTime" class="texts">
@@ -145,7 +138,7 @@
     <p>Enter Resistance(Ohm)</p>
     <input type="text" id="input2-3" />
     <br>
-    <input type="button" name="button" value="Calculate!" onclick="javascript:Voltcal()">
+    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-3", "input2-3", "resultVolt", "voltcal")'>
     <br>
     <p>Result :</p>
     <div id="resultVolt" class="texts">
@@ -160,7 +153,7 @@
     <p>Enter Resistance(Ohm)</p>
     <input type="text" id="input2-4" />
     <br>
-    <input type="button" name="button" value="Calculate!" onclick="javascript:Ampcal()">
+    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-4", "input2-4", "resultAmp", "Ampcal")'>
     <br>
     <p>Result :</p>
     <div id="resultAmp" class="texts">
@@ -175,7 +168,7 @@
     <p>Enter Electric Current(Amps)</p>
     <input type="text" id="input2-5" />
     <br>
-    <input type="button" name="button" value="Calculate!" onclick="javascript:Resistcal()">
+    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-5", "input2-5", "resultResist", "resistcal")'>
     <br>
     <p>Result :</p>
     <div id="resultResist" class="texts">
@@ -184,16 +177,18 @@
     <hr>
 
     <h1>Potential Energy Calculator</h1>
+    <h2>Find Energy</h2>
     <div class="pe">
       <img src="imgPot.png" alt="">
     </div>
+
     <p>Enter Mass(kg)</p>
     <input type="text" id="input1-6" />
     <br>
     <p>Enter Height(m)</p>
     <input type="text" id="input2-6" />
     <br>
-    <input type="button" name="button" value="Calculate!" onclick="javascript:PEcal()">
+    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-6", "input2-6", "resultE", "PEcal")'>
     <br>
     <p>Result :</p>
     <div id="resultE" class="texts">
@@ -201,17 +196,47 @@
     </div>
     <hr>
 
-    <h1>Kenetic Energy Calculator</h1>
+    <h2>Find Mass</h2>
+    <p>Enter Energy(Joules)</p>
+    <input type="text" id="input1-7" />
+    <br>
+    <p>Enter Height(m)</p>
+    <input type="text" id="input2-7" />
+    <br>
+    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-7", "input2-7", "resultMass", "PEcalA")'>
+    <br>
+    <p>Result :</p>
+    <div id="resultMass" class="texts">
+      <p>0 Kilograms</p>
+    </div>
+    <hr>
+
+    <h2>Find Height</h2>
+    <p>Enter Mass(kg)</p>
+    <input type="text" id="input1-8" />
+    <br>
+    <p>Enter Energy(Joules)</p>
+    <input type="text" id="input2-8" />
+    <br>
+    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-8", "input2-8", "resultHeigh", "PEcalB")'>
+    <br>
+    <p>Result :</p>
+    <div id="resultHeigh" class="texts">
+      <p>0 Metres</p>
+    </div>
+
+    <h1>Kinetic Energy Calculator</h1>
     <div class="kine">
       <img src="imgKine.png" alt="">
     </div>
+    <h2>Find Energy</h2>
     <p>Enter Mass(kg)</p>
-    <input type="text" id="input1-7" />
+    <input type="text" id="input1-9" />
     <br>
     <p>Enter Speed(m/s)</p>
-    <input type="text" id="input2-7" />
+    <input type="text" id="input2-9" />
     <br>
-    <input type="button" name="button" value="Calculate!" onclick="javascript:KEcal()">
+    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-9", "input2-9", "resultP", "KEcal")'>
     <br>
     <p>Result :</p>
     <div id="resultP" class="texts">
@@ -219,7 +244,35 @@
     </div>
     <hr>
 
+    <h2>Find Mass</h2>
+    <p>Enter Energy(Joules)</p>
+    <input type="text" id="input1-10" />
+    <br>
+    <p>Enter Speed(m/s)</p>
+    <input type="text" id="input2-10" />
+    <br>
+    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-10", "input2-10", "resultPK", "KEcalA")'>
+    <br>
+    <p>Result :</p>
+    <div id="resultPK" class="texts">
+      <p>0 Joules</p>
+    </div>
+    <hr>
 
+    <h2>Find Velocity</h2>
+    <p>Enter Energy(Joules)</p>
+    <input type="text" id="input1-11" />
+    <br>
+    <p>Enter Mass(kg)</p>
+    <input type="text" id="input2-11" />
+    <br>
+    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-11", "input2-11", "resultPS", "KEcalB")'>
+    <br>
+    <p>Result :</p>
+    <div id="resultPS" class="texts">
+      <p>0 Joules</p>
+    </div>
+    <hr>
 
   </body>
 </html>
