@@ -4,71 +4,7 @@
     <meta charset="utf-8">
     <title>Physic Calculator</title>
     <link rel="stylesheet" href="style.css">
-    <script charset="utf-8" type="text/javascript">
-    "use strict";
-    function OneforAll(inn1, inn2, adre , operat) {
-      var in1 = document.getElementById(inn1).value;
-      var in2 = document.getElementById(inn2).value;
-      //console.log(in1, in2);
-      in1 = parseFloat(in1);
-      in2 = parseFloat(in2);
 
-      //console.log(in1, in2);
-
-      switch(operat){
-        case "velocal":
-        document.getElementById(adre).innerHTML = in1 / in2 + " m/s";
-        //console.log("iwemiksvm");
-        break;
-
-        case "discal":
-        document.getElementById(adre).innerHTML = in1 * in2 + " metre";
-        //console.log("anoujsgfna8455841584");
-        break;
-
-        case "timecal":
-        document.getElementById(adre).innerHTML = in1 * in2 + " seconds";
-        break;
-
-        case "voltcal":
-        document.getElementById(adre).innerHTML = in1 * in2 + " Volts";
-        break;
-
-        case "resistcal":
-        document.getElementById(adre).innerHTML = in1 / in2 + " Ohms";
-        break;
-
-        case "Ampcal":
-        document.getElementById(adre).innerHTML = in1 / in2 + " Amps";
-        break;
-
-        case "PEcal":
-        document.getElementById(adre).innerHTML = in1 * 9.81 * in2 + " Joule";
-        break;
-
-        case "PEcalA":
-        //console.log("heck");
-        document.getElementById(adre).innerHTML = in2 / (9.81 * in1) + " Kilograms";
-        break;
-
-        case "PEcalB":
-        document.getElementById(adre).innerHTML = in2 / (in1 * 9.81) + " Metres";
-        break;
-
-        case "KEcal":
-        document.getElementById(adre).innerHTML = 1/2 * in1 *  in2**2 + " Joule";
-        break;
-
-        case "KEcalA":
-        document.getElementById(adre).innerHTML = in1 * 2 / in2 + " Kilograms";
-        break;
-
-        case "KEcalB":
-        document.getElementById(adre).innerHTML = (in1 * 2 / in2) ** 0.5 + " m/s";
-        break;
-      }
-    }
-    </script>
   </head>
   <body>
     <hr>
@@ -79,50 +15,23 @@
     <div class="dem1">
       <img src="imgVel.png" alt="">
     </div>
-    <h2>Find Velocity</h2>
-    <p>Enter Distance(metre)</p>
+    <select id="sel1" name="sel1" onchange="ChangeFindVel()">
+      <option value="velocal">Find Velocity</option>
+      <option value="discal">Find Distance</option>
+      <option value="timecal">Find Time</option>
+    </select>
+    <h2 id="VelCalHead">Find Velocity</h2>
+    <p id="VelLabel1">Enter Distance(metre)</p>
     <input type="text" id="input1" />
-    <br>
-    <p>Enter time(second)</p>
+
+    <p id="VelLabel2">Enter time(second)</p>
     <input type="text" id="input2">
     <br>
-    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1", "input2", "resultVelo", "velocal")' />
-    <br>
+    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1", "input2", "resultVelo", VelCal)' />
+
     <p>Result :</p>
     <div id="resultVelo" class="texts">
-      <p>0 m/s</p>
-    </div>
-    <hr>
-
-    <!-- Distance -->
-
-    <h2>Find Distance(metre)</h2>
-    <p>Enter Velocity(m/s)</p>
-    <input type="text" id="input1-1" />
-    <br>
-    <p>Enter time(second)</p>
-    <input type="text" id="input2-1" />
-    <br>
-    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-1", "input2-1", "resultDis", "discal")'>
-    <br>
-    <p>Result :</p>
-    <div id="resultDis" class="texts">
-      <p>0 metre</p>
-    </div>
-    <hr>
-    <!-- Time -->
-    <h2>Find Time(seconds)</h2>
-    <p>Enter Velocity(seconds)</p>
-    <input type="text" id="input1-2" />
-    <br>
-    <p>Enter time(second)</p>
-    <input type="text" id="input2-2" />
-    <br>
-    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-2", "input2-2", "resultTime", "timecal")'>
-    <br>
-    <p>Result :</p>
-    <div id="resultTime" class="texts">
-      <p>0 seconds</p>
+      <p></p>
     </div>
     <hr>
 
@@ -131,148 +40,82 @@
     <div class="Ohm">
       <img src="imgOhm.png" alt="">
     </div>
-    <h2>Find Voltage</h2>
-    <p>Enter Electric Current(Amp)</p>
+    <select id="selOhm" onchange="ChangeOhmLaw()">
+      <option value="voltcal">Find Voltage</option>
+      <option value="Ampcal">Find Electric Current</option>
+      <option value="resistcal">Find Resistance</option>
+    </select>
+    <h2 id="OhmCalHead">Find Voltage</h2>
+    <p id="OhmLabel1">Enter Electric Current(Amp)</p>
     <input type="text" id="input1-3" />
     <br>
-    <p>Enter Resistance(Ohm)</p>
+    <p id="OhmLabel2">Enter Resistance(Ohm)</p>
     <input type="text" id="input2-3" />
     <br>
-    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-3", "input2-3", "resultVolt", "voltcal")'>
+    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-3", "input2-3", "resultVolt", OhmCal)'>
     <br>
     <p>Result :</p>
     <div id="resultVolt" class="texts">
-      <p>0 Volts</p>
+      <p></p>
     </div>
     <hr>
 
-    <h2>Find Electric Current</h2>
-    <p>Enter Voltage(Volts)</p>
-    <input type="text" id="input1-4" />
-    <br>
-    <p>Enter Resistance(Ohm)</p>
-    <input type="text" id="input2-4" />
-    <br>
-    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-4", "input2-4", "resultAmp", "Ampcal")'>
-    <br>
-    <p>Result :</p>
-    <div id="resultAmp" class="texts">
-      <p>0 Amps</p>
-    </div>
-    <hr>
-
-    <h2>Find Resistance</h2>
-    <p>Enter Voltage(Volts)</p>
-    <input type="text" id="input1-5" />
-    <br>
-    <p>Enter Electric Current(Amps)</p>
-    <input type="text" id="input2-5" />
-    <br>
-    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-5", "input2-5", "resultResist", "resistcal")'>
-    <br>
-    <p>Result :</p>
-    <div id="resultResist" class="texts">
-      <p>0 Ohms</p>
-    </div>
-    <hr>
-
+    <!-- Potential Energy Calculator(For making it more obvious :P ) -->
     <h1>Potential Energy Calculator</h1>
-    <h2>Find Energy</h2>
     <div class="pe">
       <img src="imgPot.png" alt="">
     </div>
-
-    <p>Enter Mass(kg)</p>
+    <select id="selPE" name="selPE" onchange="ChangePECal()">
+      <option value="PEcal">Find Energy</option>
+      <option value="PEcalA">Find Mass</option>
+      <option value="PEcalB">Find Height</option>
+    </select>
+    <h2 id="PEcalHead">Find Energy</h2>
+    <p id="PEcalLabel1">Enter Mass(kg)</p>
     <input type="text" id="input1-6" />
     <br>
-    <p>Enter Height(m)</p>
+    <p id="PEcalLabel2">Enter Height(m)</p>
     <input type="text" id="input2-6" />
     <br>
-    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-6", "input2-6", "resultE", "PEcal")'>
+    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-6", "input2-6", "resultE", PEcal)'>
     <br>
     <p>Result :</p>
     <div id="resultE" class="texts">
-      <p>0 Joules</p>
+      <p></p>
     </div>
     <hr>
 
-    <h2>Find Mass</h2>
-    <p>Enter Energy(Joules)</p>
-    <input type="text" id="input1-7" />
-    <br>
-    <p>Enter Height(m)</p>
-    <input type="text" id="input2-7" />
-    <br>
-    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-7", "input2-7", "resultMass", "PEcalA")'>
-    <br>
-    <p>Result :</p>
-    <div id="resultMass" class="texts">
-      <p>0 Kilograms</p>
-    </div>
-    <hr>
-
-    <h2>Find Height</h2>
-    <p>Enter Mass(kg)</p>
-    <input type="text" id="input1-8" />
-    <br>
-    <p>Enter Energy(Joules)</p>
-    <input type="text" id="input2-8" />
-    <br>
-    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-8", "input2-8", "resultHeigh", "PEcalB")'>
-    <br>
-    <p>Result :</p>
-    <div id="resultHeigh" class="texts">
-      <p>0 Metres</p>
-    </div>
-
+    <!-- Kinetic Energy Calculator -->
     <h1>Kinetic Energy Calculator</h1>
     <div class="kine">
       <img src="imgKine.png" alt="">
     </div>
-    <h2>Find Energy</h2>
-    <p>Enter Mass(kg)</p>
+    <select id="selKE" name="selKE" onchange="ChangeKECal()">
+      <option value="KEcal">Find Energy</option>
+      <option value="KEcalA">Find Mass</option>
+      <option value="KEcalB">Find Velocity</option>
+    </select>
+
+    <h2 id="KEcalHead">Find Energy</h2>
+
+    <p id="KEcalLabel1">Enter Mass(kg)</p>
     <input type="text" id="input1-9" />
     <br>
-    <p>Enter Speed(m/s)</p>
+
+    <p id="KEcalLabel2">Enter Speed(m/s)</p>
     <input type="text" id="input2-9" />
     <br>
-    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-9", "input2-9", "resultP", "KEcal")'>
+    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-9", "input2-9", "resultP", KEcal)'>
     <br>
+
     <p>Result :</p>
     <div id="resultP" class="texts">
-      <p>0 Joules</p>
+      <p></p>
     </div>
     <hr>
+    <!-- if you are reading this, i'm having sex with your mom right now. -->
 
-    <h2>Find Mass</h2>
-    <p>Enter Energy(Joules)</p>
-    <input type="text" id="input1-10" />
-    <br>
-    <p>Enter Speed(m/s)</p>
-    <input type="text" id="input2-10" />
-    <br>
-    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-10", "input2-10", "resultPK", "KEcalA")'>
-    <br>
-    <p>Result :</p>
-    <div id="resultPK" class="texts">
-      <p>0 Joules</p>
-    </div>
-    <hr>
-
-    <h2>Find Velocity</h2>
-    <p>Enter Energy(Joules)</p>
-    <input type="text" id="input1-11" />
-    <br>
-    <p>Enter Mass(kg)</p>
-    <input type="text" id="input2-11" />
-    <br>
-    <input type="button" name="button" value="Calculate!" onclick='javascript:OneforAll("input1-11", "input2-11", "resultPS", "KEcalB")'>
-    <br>
-    <p>Result :</p>
-    <div id="resultPS" class="texts">
-      <p>0 Joules</p>
-    </div>
-    <hr>
-
+    <!--Import script-->
+    <script charset="utf-8" type="text/javascript" src="script.js"></script>
   </body>
 </html>
